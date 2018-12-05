@@ -1,0 +1,16 @@
+br/com/modelo/OntoParceiro.class
+br/com/modelo/OntoPessoa.class
+br/com/modelo/TrabalhoEvento.class
+br/com/DAO/BuscarXmlToPessoa.class
+br/com/Ontology/OntologyDAO.class
+br/com/DAO/ReadFile.class
+br/com/modelo/AreaConhecimento.class
+br/com/modelo/OntoClass.class
+br/com/converter/ConverterFile.class
+br/com/OntoDTlattes.class
+Main.class
+br/com/converter/TratamentoDeDados.class
+br/com/modelo/TriplaOwl.class
+br/com/AnaliseController.class
+br/com/Main.class
+br/com/DAO/PreencherOntologia.class

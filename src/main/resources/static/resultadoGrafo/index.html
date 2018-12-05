@@ -1,0 +1,102 @@
+<html>
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css"/>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/ionicons@4.2.2/dist/ionicons.js"></script>
+</head>
+<body>
+        
+        <div id="app">
+            <div class="row" >
+                <div class="col-12 " style="height: 8vh;">
+                        <!-- <button type="button" @click="DesenharNo()">printar</button> -->
+{{ListarNomes()}}
+                    <div class="row">
+                        <div class="col">
+                                <div class="form-group">
+                                        <!-- <button @click="tudo()"> todos </button> -->
+
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" @click="gerargrafo()">
+                                               Gerar Grafo Completo
+                                        </button>
+                                              
+                                              <!-- Modal -->
+                                              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                  <div class="modal-content">
+                                                    <div class="modal-header">
+                                                      <h5 class="modal-title" id="exampleModalLabel">Deseja gerar o Grafo completo ?</h5>
+                                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                      </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                      Este procedimento pode levar minutos, deseja realmente gerar o grafo ?
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+                                                      <button type="button" class="btn btn-primary" data-dismiss="modal" @click="tudo()" >Sim</button>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+
+
+
+
+
+                                        OU Selecione um pesquisador
+                                        <select v-model="raiz" class="" placeholder="Selecione o pesquisador"  @click="DesenharNo()">
+                                                <option disabled value="" selected >Escolha um item</option>
+                                                <option v-for="itemCate in nomeLista" >{{itemCate}}</option>
+                                        </select>
+                                </div>
+                        </div>
+                    </div>
+            
+                </div>
+                <div class="col-12">
+                    <div class="row" v-if="layouttipo == 0">
+                            <div class="col-12 p-0 border" style="overflow: auto;height: 90vh;">
+                                    <div id="mynetwork"></div>
+                            </div>
+                    </div>
+                    <div class="row" v-if="layouttipo == 1">
+                        <div class="col-3 pr-0" style="overflow: auto;height: 90vh;" >
+            
+                                <table class="table table-hover" v-if="booleantabela" style="font-size: 11px;">
+                                        <thead class="thead-dark">
+                                          <tr>
+                                            <th scope="col" class="pr-0">Nome</th>
+                                            <th scope="col" class="pr-0">Semelhança</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr v-for="itemCate in lista">
+                                            <th scope="row">{{itemCate[0]}}</th>
+                                            <td>{{itemCate[1]}}</td>
+                                          </tr>
+                                        </tbody>
+                                </table>
+                        </div>
+                        <div class="col-9 p-0 border" style="overflow: auto;height: 90vh;">
+                                <div id="mynetwork"></div>
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+  <script src="comnentDt.js?v=1"></script>
+  </body>
+</html>
